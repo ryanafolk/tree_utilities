@@ -1,11 +1,11 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 
 #####
 # This script was adapted from simulation tools developed by S. Mirarab for the paper: 
 # Mirarab et al. 2014. Statistical binning enables an accurate coalescent-based estimation of the avian tree. Science 346(6215):1250463.
 
 import dendropy
-from dendropy import treesim
+from dendropy.simulate import treesim
 from dendropy import TreeList
 import sys
 
@@ -23,18 +23,14 @@ f.close()
 
 sp_tree_str = "[&R] " + sp_tree_str
 
-sp_tree = dendropy.Tree.get_from_string(sp_tree_str, "newick", unquoted_underscores = False)
-gene_to_species_map = dendropy.TaxonSetMapping.create_contained_taxon_mapping(
-        containing_taxon_set=sp_tree.taxon_set,
-        num_contained=1)
-
+sp_tree = dendropy.Tree.get_from_string(sp_tree_str, "newick", preserve_underscores = True)
+gene_to_species_map = dendropy.TaxonNamespaceMapping.create_contained_taxon_mapping(containing_taxon_namespace = sp_tree.taxon_namespace, num_contained=1)
 gene_tree_list = TreeList()
 
 for i in range(num):
-    gene_tree = treesim.contained_coalescent(containing_tree=sp_tree,
-    gene_to_containing_taxon_map=gene_to_species_map)
+    gene_tree = treesim.contained_coalescent_tree(containing_tree=sp_tree, gene_to_containing_taxon_map = gene_to_species_map)
     for t in gene_tree.leaf_nodes():
-        t.taxon.label = t.taxon.label.split( )[0]
+        t.taxon.label = t.taxon.label.split()[0]
     gene_tree_list.append(gene_tree)
 
 

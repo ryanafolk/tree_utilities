@@ -11,7 +11,7 @@ Run like:
 
 ## sampled_ancestornodes_to_branches.py
 
-This script converts sampled ancestors notated as node labels (e.g., the native format in RevBayes output) to new tip taxa with a very short branch of 1e-6. The purpose is to easily use output with downstream tools such as BioGeoBEARS that expect sampled ancestors coded as leaves.
+This script converts sampled ancestors notated as node labels (e.g., the native format in RevBayes output) to new tip taxa with a very short branch of 1e-6. The purpose is to easily use output with downstream tools such as BioGeoBEARS that expect sampled ancestors coded as leaves. It accepts lists of trees, e.g., MCMC output, and handles (but ignores in output) node metadata.
 
 Run like:
 ```

@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 # Run like:
-# ./sampled_ancestornodes_to_branches.py fagales.treesample.subset.tre fagales.treesample.subset.zerobranchancestors.tre
+# ./drop_duplicates_tree.py intree.tre outtree.tre
 
 
 import dendropy

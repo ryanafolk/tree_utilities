@@ -31,5 +31,5 @@ García, N., R.A. Folk, A.W. Meerow, S. Chamala, M.A. Gitzendanner, R.S de Olive
 The file `astral_example_hippeastrum.tre` is from the aTRAM-ASTRAL analysis in García et al. 2017 and may be run like so:
 
 ```
-./generateCoalescentTrees_preservetaxonnames.py astral_example_hippeastrum.tre 1000 example_gene_trees.tre
+./simulate_gene_trees.py astral_example_hippeastrum.tre 1000 example_gene_trees.tre
 ```

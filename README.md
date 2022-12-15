@@ -33,3 +33,21 @@ The file `astral_example_hippeastrum.tre` is from the aTRAM-ASTRAL analysis in G
 ```
 ./simulate_gene_trees.py astral_example_hippeastrum.tre 1000 example_gene_trees.tre
 ```
+
+## enumerate_clade_frequencies.py
+
+Generate a vector of the complete set of clades and their frequencies for a given tree set.
+
+Run like:
+```
+python3 enumerate_clade_frequencies.py simulated_tree_set.tre clade_frequencies.csv
+```
+
+## enumerate_robinsonfoulds.py
+
+Generate two vectors, (1) the complete Robinson-Foulds distances among all possible pairwise comparisons of a tree set, and (2) the complete Robinson-Foulds distances between a tree set and some comparison tree.
+
+Run like:
+```
+python3 enumerate_robinsonfoulds.py simulated_tree_set.tre out_simulated.csv empirical_tree.tre out_empirical.csv
+```

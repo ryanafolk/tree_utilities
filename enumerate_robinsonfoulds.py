@@ -65,7 +65,7 @@ with open(fout, "w") as f:
 # Chloroplast
 ###### 	
     	
-f=open(fin, "r")
+f=open(chloroplast_tree, "r")
 
 cp_tree_str = ""
 for l in f:

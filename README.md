@@ -9,6 +9,16 @@ Run like:
 ./drop_duplicates_tree.py intree.tre outtree.tre
 ```
 
+## number_duplicates_tree.py
+
+This script keeps all taxa per tip name in the event of taxon name duplicates, appending "_2" to duplicates. Note, if the duplicate set for a name is more than two, name patterns like "_2_2_2" will occur (this one means the fourth duplicate). You can use the sed command suggested below. This one is an alternate to `drop_duplicates_tree.py` when all need to be retained.
+
+Run like:
+```
+./drop_duplicates_tree.py intree.tre outtree.tre
+#sed -i 's/_2_2/_3/g' outtree.tre
+```
+
 ## sampled_ancestornodes_to_branches.py
 
 This script converts sampled ancestors notated as node labels (e.g., the native format in RevBayes output) to new tip taxa with a very short branch of 1e-6. The purpose is to easily use output with downstream tools such as BioGeoBEARS that expect sampled ancestors coded as leaves. It accepts lists of trees, e.g., MCMC output, and handles (but ignores in output) node metadata.
